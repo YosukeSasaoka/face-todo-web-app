@@ -13,9 +13,9 @@ using System.IO;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
-using System.Web.Script.Serialization;
 using System.Configuration;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,13 +31,17 @@ namespace registerPerson.Controllers
 
             var faceApi = new FaceApi()
             {
-                SubscriptionKey = appKey,
+                SubscriptionKey = "write here subscription key",
                 GroupName = "group1",
             };
+
             var task = Task.Run(() =>
             {
-                return faceApi.createPerson(person.Name);
+                var personIdJson = faceApi.createPerson(person.Name).Result;
+                PersonId personId = JsonConvert.DeserializeObject<PersonId>(personIdJson);
+                return faceApi.addPersonFace(personId.Id, person.FaceImgUrl);
             });
+            Console.WriteLine(task.Result);
             return task.Result;
         }
     }
