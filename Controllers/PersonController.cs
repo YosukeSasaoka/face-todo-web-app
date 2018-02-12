@@ -41,7 +41,7 @@ namespace registerPerson.Controllers
                 PersonId personId = JsonConvert.DeserializeObject<PersonId>(personIdJson);
                 return faceApi.addPersonFace(personId.Id, person.FaceImgUrl);
             });
-            Console.WriteLine(task.Result);
+
             return task.Result;
         }
     }
