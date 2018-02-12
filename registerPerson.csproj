@@ -61,4 +61,7 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\RequestResult.cs" />
+  </ItemGroup>
 </Project>
