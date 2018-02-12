@@ -20,7 +20,7 @@ namespace registerPerson.Models
 
         async public Task<string> createPerson(String name)
         {
-            var personInfo = new Person()
+            var personInfo = new CreatePersonInfo()
             {
                 Name = name,
             };
