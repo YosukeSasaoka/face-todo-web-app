@@ -63,5 +63,9 @@
 
   <ItemGroup>
     <Compile Remove="Models\RequestResult.cs" />
+    <Compile Remove="EmptyClass.cs" />
+    <Compile Remove="Controllers\personname.cs" />
+    <Compile Remove="Models\personname.cs" />
+    <Compile Remove="Controllers\ValuesController.cs" />
   </ItemGroup>
 </Project>

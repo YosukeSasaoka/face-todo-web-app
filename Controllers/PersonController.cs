@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using registerPerson.Models;
-using System.Web;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Net.Http;
-
-using System.IO;
-using System.Net;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 using System.Configuration;
-using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,8 +19,8 @@ namespace registerPerson.Controllers
 
             var faceApi = new FaceApi()
             {
-                SubscriptionKey = "write here subscription key",
-                GroupName = "group1",
+                SubscriptionKey = "write key",
+                GroupName = "write froup name",
             };
 
             var task = Task.Run(() =>
