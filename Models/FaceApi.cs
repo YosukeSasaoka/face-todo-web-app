@@ -30,7 +30,7 @@ namespace registerPerson.Models
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/group1/persons");
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons"));
                 request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
                 var res = await client.SendAsync(request);
                 return res.Content.ReadAsStringAsync().Result;
@@ -49,7 +49,26 @@ namespace registerPerson.Models
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/group1/persons/{personId}/persistedFaces"));
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces"));
+                request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
+                var res = await client.SendAsync(request);
+                return res.Content.ReadAsStringAsync().Result;
+            }
+        }
+
+        async public Task<string> detectPersonFace(String imgUrl)
+        {
+            var personInfo = new AddPersonFaceInfo()
+            {
+                Url = imgUrl,
+            };
+
+            var json = JsonConvert.SerializeObject(personInfo);
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true"));
                 request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
                 var res = await client.SendAsync(request);
                 return res.Content.ReadAsStringAsync().Result;
