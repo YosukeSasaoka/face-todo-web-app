@@ -26,6 +26,8 @@ namespace faceTodoApplication
             services.AddMvc();
             services.AddDbContext<TodoesContext>(options =>
             options.UseSqlite("Data Source=faceTodoApplication.db"));
+            services.AddOptions();
+            services.Configure<AzureStorageConfig>(Configuration.GetSection("AzureStorageConfig")); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
