@@ -1,0 +1,7 @@
+
+Bin/
+Obj/
+*.user
+*.suo
+TestResults/
+.DS_Store

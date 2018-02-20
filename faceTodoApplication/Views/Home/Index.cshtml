@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Home page";
+}
+
+  
+ <form method="post" action="" onsubmit="return Check()" name="inputForm" enctype="multipart/form-data">
+        <div>
+            名前:<input type="text" id="username" name="username" value="" />
+        </div>
+    
+        <div>
+            画像 ファイル:<input accept="image/*" type="file" size="50" id="my_img" name="pic" />
+        </div>
+    
+        <input type="submit" value="送信"> 
+
+ </form>

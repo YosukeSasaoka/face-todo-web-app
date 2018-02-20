@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - faceTodoApplication</title>
+        <h2>入力フォームプロトタイプ</h2>
+                <hr />
+
+     @RenderBody()
+
+<script language="JavaScript">
+    <!--
+    function Check () {
+        var userName = document.inputForm.username.value;
+        var picPath = document.inputForm.pic.value;
+
+        if ( userName == "" ) {
+            alert ( "名前を入力して下さい。" );
+            document.inputForm.username.focus();
+            return false;
+        }
+
+        if ( picPath == "" ) {
+            alert ( "顔写真を添付して下さい。" );
+            document.inputForm.pic.focus();
+            return false;
+        }   
+
+        return true;
+    }
+    //  -->
+</script>
+   
+</head>
+<body>
+   
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - faceTodoApplication</p>
+        </footer>
+    </div>
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
