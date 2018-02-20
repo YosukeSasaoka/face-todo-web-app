@@ -1,0 +1,30 @@
+@model faceTodoApplication.Models.Todo
+
+@{
+    ViewData["Title"] = "参照";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Todo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">一覧に戻る</a>
+</div>

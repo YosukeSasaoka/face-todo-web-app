@@ -321,3 +321,8 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+
+Bin/
+Obj/
+TestResults/
+.DS_Store
