@@ -30,7 +30,7 @@ namespace registerPerson.Models
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons"));
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://southeastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons"));
                 request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
                 var res = await client.SendAsync(request);
                 return res.Content.ReadAsStringAsync().Result;
@@ -49,7 +49,7 @@ namespace registerPerson.Models
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces"));
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://southeastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces"));
                 request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
                 var res = await client.SendAsync(request);
                 return res.Content.ReadAsStringAsync().Result;
@@ -68,7 +68,7 @@ namespace registerPerson.Models
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://australiaeast.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true"));
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://southeastasia.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true"));
                 request.Content = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
                 var res = await client.SendAsync(request);
                 return res.Content.ReadAsStringAsync().Result;

@@ -18,13 +18,25 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group" hidden="hidden">
-                <label asp-for="URL" class="control-label"></label>
-                <input asp-for="URL" class="form-control" />
-                <span asp-validation-for="URL" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Mail" class="control-label"></label>
+                <input asp-for="Mail" class="form-control" />
+                <span asp-validation-for="Mail" class="text-danger"></span>
             </div>
-            <div>
-                画像 ファイル:<input accept="image/*" type="file" size="50" id="my_img" name="pic" />
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoogleToken" class="control-label"></label>
+                <input asp-for="GoogleToken" class="form-control" />
+                <span asp-validation-for="GoogleToken" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden="hidden">
+                <label asp-for="PersonId" class="control-label"></label>
+                <input asp-for="PersonId" class="form-control" />
+                <span asp-validation-for="PersonId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="更新" class="btn btn-default" />

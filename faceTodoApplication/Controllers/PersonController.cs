@@ -19,8 +19,8 @@ namespace registerPerson.Controllers
 
             var faceApi = new FaceApi()
             {
-                SubscriptionKey = "write key",
-                GroupName = "write froup name",
+                SubscriptionKey = "",
+                GroupName = "",
             };
 
             var task = Task.Run(() =>
