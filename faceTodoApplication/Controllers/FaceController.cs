@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Configuration;
 using Newtonsoft.Json;
 using faceTodoApplication.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -40,16 +42,23 @@ namespace faceTodoApplication.Controllers
             {
                 // 顔検出
                 var detectResponseJson = faceApi.detectPersonFace(detect.FaceUrl).Result;
-                DetectResponse detectResponse = JsonConvert.DeserializeObject<DetectResponse>(detectResponseJson);
+                var detectResponse = JsonConvert.DeserializeObject<List<DetectResponse>>(detectResponseJson);
 
                 // 顔識別
-                var identifyResponseJson = faceApi.identifyPersonFace(detectResponse.FaceId).Result;
-                IdentifyResponse identifyResponse = JsonConvert.DeserializeObject<IdentifyResponse>(identifyResponseJson);
+                var identifyResponseJson = faceApi.identifyPersonFace(detectResponse[0].FaceId).Result;
+                var identifyResponse = JsonConvert.DeserializeObject<List<IdentifyResponse>>(identifyResponseJson);
+
+                //faceRectangleのみ抽出
+                FaceRectangle faceRectangle = detectResponse[0].FaceRectangle;
+
+                // PersonIdのみ抽出
+                var candidates = identifyResponse[0].CandidatesInfo;
+                string personId = candidates[0].PersonId;
 
                 var todoList = new AppResponse()
                 {
-                    DetectResponseInfo = detectResponse,
-                    IdentifyResponseInfo = identifyResponse,
+                    PersonId = personId,
+                    FaceRectangleInfo =faceRectangle,
                     TodoList = todo1
                 };
 

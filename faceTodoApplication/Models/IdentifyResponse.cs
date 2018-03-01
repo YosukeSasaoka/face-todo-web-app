@@ -1,4 +1,6 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace faceTodoApplication.Models
@@ -9,6 +11,6 @@ namespace faceTodoApplication.Models
         [JsonProperty("faceId")]
         public string FaceId { get; set; }
         [JsonProperty("candidates")]
-        public Candidates CandidatesInfo { get; set;}
+        public List<Candidates> CandidatesInfo { get; set;}
     }
 }
