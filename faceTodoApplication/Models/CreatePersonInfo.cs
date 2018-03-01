@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     public class CreatePersonInfo
     {

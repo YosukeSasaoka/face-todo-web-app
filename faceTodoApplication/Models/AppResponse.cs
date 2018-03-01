@@ -1,13 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿
+using faceTodoApplication.Models;
+using Newtonsoft.Json;
 
 
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     [JsonObject]
     public class AppResponse
     {
-        [JsonProperty("response")]
-        public string Response { get; set; }
+        [JsonProperty("detectResponse")]
+        public DetectResponse DetectResponseInfo { get; set; }
+        [JsonProperty("IdentifyResponse")]
+        public IdentifyResponse IdentifyResponseInfo { get; set; }
         [JsonProperty("todo")]
         public TodoDetail TodoList { get; set; }
     }

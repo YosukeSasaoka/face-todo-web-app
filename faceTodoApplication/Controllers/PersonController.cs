@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using registerPerson.Models;
 using System.Configuration;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using faceTodoApplication.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace registerPerson.Controllers
+namespace faceTodoApplication.Controllers
 {
     [Route("api/[controller]")]
     public class PersonController : Controller

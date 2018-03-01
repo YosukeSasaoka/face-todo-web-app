@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     [JsonObject]
     public class TodoDetail
