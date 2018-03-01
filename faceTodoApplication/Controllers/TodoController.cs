@@ -8,8 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using faceTodoApplication.Models;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.Extensions.Options;
-using registerPerson.Models;
-using registerPerson;
+
 
 namespace faceTodoApplication.Controllers
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     public class Detect
     {

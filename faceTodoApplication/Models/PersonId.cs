@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
  
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     [JsonObject]
     public class PersonId

@@ -1,9 +1,9 @@
 ﻿using System.Configuration;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
-using registerPerson.Models;
+using faceTodoApplication.Models;
 
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     public class AddPerson
     {

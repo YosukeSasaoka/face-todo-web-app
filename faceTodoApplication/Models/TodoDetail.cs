@@ -1,12 +1,12 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace registerPerson
+namespace faceTodoApplication.Models
 {
     [JsonObject]
     public class TodoDetail
     {
-        [JsonProperty("Title")]
+        [JsonProperty("title")]
         public string Title { get; set; }
         [JsonProperty("date")]
         public DateTime DoDate { get; set; }

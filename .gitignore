@@ -326,3 +326,4 @@ Bin/
 Obj/
 TestResults/
 .DS_Store
+*/*.userprefs
