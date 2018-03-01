@@ -23,7 +23,7 @@ namespace faceTodoApplication.Models
             string imgPath = "";
             foreach (var file in context.Request.Form.Files)
             {
-                var name = System.IO.Path.GetFileName(file.FileName);
+                var name = System.IO.Path.GetFileName(DateTime.Now.ToString("yyyyMMddHHmmssfff")+file.FileName);
                 using (var s = file.OpenReadStream())
                 {
                     var blockBlob = blobContainer.GetBlockBlobReference(name);
