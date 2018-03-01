@@ -1,3 +1,50 @@
 ﻿<Properties StartupConfiguration="{09012E2D-DA64-4F81-8CD3-72FC40085DAC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/FaceController.cs">
+    <Files>
+      <File FileName="Models/Todo.cs" Line="21" Column="31" />
+      <File FileName="appsettings.json" Line="19" Column="3" />
+      <File FileName="Models/FaceApi.cs" Line="71" Column="110" />
+      <File FileName="Controllers/TodoController.cs" Line="21" Column="9" />
+      <File FileName="Models/TodoesContext.cs" Line="1" Column="1" />
+      <File FileName="Models/PersonId.cs" Line="7" Column="9" />
+      <File FileName="Models/imgUpload.cs" Line="15" Column="10" />
+      <File FileName="Models/FaceApiConfig.cs" Line="1" Column="1" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/CreatePersonInfo.cs" Line="1" Column="1" />
+      <File FileName="Models/AzureStorageConfig.cs" Line="1" Column="1" />
+      <File FileName="Models/AddPersonFaceInfo.cs" Line="4" Column="25" />
+      <File FileName="Controllers/HomeController.cs" Line="23" Column="35" />
+      <File FileName="Views/Todo/Create.cshtml" Line="38" Column="41" />
+      <File FileName="Views/Todo/Delete.cshtml" Line="42" Column="53" />
+      <File FileName="Views/Todo/Details.cshtml" Line="41" Column="53" />
+      <File FileName="Views/Todo/Edit.cshtml" Line="39" Column="51" />
+      <File FileName="Views/Todo/Index.cshtml" Line="49" Column="60" />
+      <File FileName="Views/Todo/loginForm.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Todo/mainForm.cshtml" Line="4" Column="18" />
+      <File FileName="Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="38" Column="10" />
+      <File FileName="Models/TodoDetail.cs" Line="7" Column="28" />
+      <File FileName="Controllers/PersonController.cs" Line="15" Column="19" />
+      <File FileName="Models/AppResponse.cs" Line="8" Column="6" />
+      <File FileName="Models/Detect.cs" Line="1" Column="1" />
+      <File FileName="Models/Person.cs" Line="1" Column="1" />
+      <File FileName="Models/Setting.cs" Line="7" Column="2" />
+      <File FileName="Controllers/FaceController.cs" Line="12" Column="20" />
+      <File FileName="appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="Models/AddPerson.cs" Line="17" Column="14" />
+      <File FileName="Properties/PublishProfiles/face-todo-app - Web Deploy.pubxml" Line="1" Column="1" />
+      <File FileName="Properties/PublishProfiles/face-web-app - Web Deploy.pubxml" Line="1" Column="1" />
+      <File FileName="Migrations/TodoesContextModelSnapshot.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.faceTodoApplication PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/kataokataichi/Prpject/faceTodoApplication/Controllers/TodoController.cs" relfile="Controllers/TodoController.cs" line="268" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

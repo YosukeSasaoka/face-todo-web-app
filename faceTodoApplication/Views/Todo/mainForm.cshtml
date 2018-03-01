@@ -1,0 +1,32 @@
+﻿@model faceTodoApplication.Models.Todo 
+
+<div style="color:blue">
+    <p>@ViewBag.name</p>
+    <p>@ViewBag.imgRegister</p>
+</div>
+<div style="color:red">
+    <p>@ViewBag.imgNoRegister</p>
+</div>
+
+@{
+    ViewData["Title"] = "ポータル";
+}
+
+<form asp-action="mainForm"  method="post" name="inputForm" enctype="multipart/form-data">
+            <div>
+                画像 ファイル:<input accept="image/*" type="file" size="100" id="my_img" name="pic" required="required"/>
+            </div>
+            <input name="foo" type="hidden" value="@ViewBag.uName"/>
+            <div class="form-group">
+                <input type="submit" value="アップロード" class="btn btn-default"/>
+            </div>
+</form>
+
+<div>
+    <a asp-action="loginForm">ログアウト</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

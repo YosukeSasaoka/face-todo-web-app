@@ -5,6 +5,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Azure;
 using faceTodoApplication.Models;
+using System.Threading;
 
 namespace faceTodoApplication.Models
 {
@@ -27,6 +28,7 @@ namespace faceTodoApplication.Models
                 {
                     var blockBlob = blobContainer.GetBlockBlobReference(name);
                         blockBlob.UploadFromStreamAsync(s);
+                    Thread.Sleep(3000);
                     imgPath = blockBlob.Uri.ToString();
                 }
             }

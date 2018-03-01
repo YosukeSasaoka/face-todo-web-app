@@ -19,17 +19,17 @@ namespace registerPerson.Controllers
 
             var faceApi = new FaceApi()
             {
-                SubscriptionKey = "write key",
-                GroupName = "write froup name",
+                SubscriptionKey = "",
+                GroupName = ""
             };
 
-            var todo1 = new Todo()
+            var todo1 = new TodoDetail()
             {
                 Title = "hoge",
                 DoDate = DateTime.Now
             };
 
-            var todo2 = new Todo()
+            var todo2 = new TodoDetail()
             {
                 Title = "fuga",
                 DoDate = DateTime.Today

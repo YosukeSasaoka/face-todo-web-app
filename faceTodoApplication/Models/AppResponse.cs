@@ -9,6 +9,6 @@ namespace registerPerson
         [JsonProperty("response")]
         public string Response { get; set; }
         [JsonProperty("todo")]
-        public Todo TodoList { get; set; }
+        public TodoDetail TodoList { get; set; }
     }
 }

@@ -25,9 +25,12 @@ namespace faceTodoApplication
         {
             services.AddMvc();
             services.AddDbContext<TodoesContext>(options =>
-            options.UseSqlite("Data Source=faceTodoApplication.db"));
+                  options.UseSqlServer(Configuration.GetConnectionString("Development")));
+            //services.AddDbContext<TodoesContext>(options =>
+                                                 //options.UseSqlite("Data Source=faceTodoApplication.db"));           
             services.AddOptions();
             services.Configure<AzureStorageConfig>(Configuration.GetSection("AzureStorageConfig")); 
+            services.Configure<FaceApiConfig>(Configuration.GetSection("FaceApiConfig")); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +51,7 @@ namespace faceTodoApplication
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Todo}/{action=Create}/{id?}");
+                    template: "{controller=Todo}/{action=loginForm}/{id?}");
             });
         }
     }

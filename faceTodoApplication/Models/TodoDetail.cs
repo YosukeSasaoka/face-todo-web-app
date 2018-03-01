@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace registerPerson
 {
     [JsonObject]
-    public class Todo
+    public class TodoDetail
     {
         [JsonProperty("Title")]
         public string Title { get; set; }
