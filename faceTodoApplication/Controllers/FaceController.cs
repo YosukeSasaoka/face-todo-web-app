@@ -12,8 +12,8 @@ namespace registerPerson.Controllers
     [Route("api/[controller]")]
     public class FaceController : Controller
     {
-        [HttpPost]
-        public Task<string> Post([FromBody]Detect detect)
+        [HttpGet]
+        public Task<string> Get([FromBody]Detect detect)
         {
             string appKey = ConfigurationManager.AppSettings["appKey"];
 
