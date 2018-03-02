@@ -8,7 +8,5 @@ namespace faceTodoApplication.Models
     {
         [JsonProperty("title")]
         public string Title { get; set; }
-        [JsonProperty("date")]
-        public DateTime DoDate { get; set; }
     }
 }

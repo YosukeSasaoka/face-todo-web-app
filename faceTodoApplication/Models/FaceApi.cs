@@ -100,5 +100,16 @@ namespace faceTodoApplication.Models
             }
         }
 
+        async public void trainPersonFace()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, ($"https://southeastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/o-tech/train"));
+                request.Content = new System.Net.Http.StringContent(null, Encoding.UTF8, "application/json");
+                await client.SendAsync(request);
+            }
+        }
+
     }
 }
