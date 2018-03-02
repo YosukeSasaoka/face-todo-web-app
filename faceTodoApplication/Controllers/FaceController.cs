@@ -33,45 +33,58 @@ namespace faceTodoApplication.Controllers
                 GroupName = ""
             };
 
-            var todo1 = new TodoDetail()
-            {
-                Title = "hoge",
-                DoDate = DateTime.Now
-            };
 
-            var todo2 = new TodoDetail()
-            {
-                Title = "fuga",
-                DoDate = DateTime.Today
-            };
 
             var task = Task.Run(() =>
             {
-                // 顔検出
-                var detectResponseJson = faceApi.detectPersonFace(detect.FaceUrl).Result;
-                var detectResponse = JsonConvert.DeserializeObject<List<DetectResponse>>(detectResponseJson);
-
-                // 顔識別
-                var identifyResponseJson = faceApi.identifyPersonFace(detectResponse[0].FaceId).Result;
-                var identifyResponse = JsonConvert.DeserializeObject<List<IdentifyResponse>>(identifyResponseJson);
-
-                //faceRectangleのみ抽出
-                FaceRectangle faceRectangle = detectResponse[0].FaceRectangle;
-
-                // PersonIdのみ抽出
-                var candidates = identifyResponse[0].CandidatesInfo;
-                string personId = candidates[0].PersonId;
-
                 AppResponse todoList;
-                if (TodoDbExistPersonId(personId)) {
-                    todoList = new AppResponse()
+                try{
+                    
+                    // 顔検出
+                    var detectResponseJson = faceApi.detectPersonFace(detect.FaceUrl).Result;
+                    var detectResponse = JsonConvert.DeserializeObject<List<DetectResponse>>(detectResponseJson);
+
+                    // 顔識別
+                    var identifyResponseJson = faceApi.identifyPersonFace(detectResponse[0].FaceId).Result;
+                    var identifyResponse = JsonConvert.DeserializeObject<List<IdentifyResponse>>(identifyResponseJson);
+
+                    //faceRectangleのみ抽出
+                    FaceRectangle faceRectangle = detectResponse[0].FaceRectangle;
+
+                    // PersonIdのみ抽出
+                    var candidates = identifyResponse[0].CandidatesInfo;
+                    string personId = candidates[0].PersonId;
+
+                    TodoDetail todo = new TodoDetail()
                     {
-                        PersonId = personId,
-                        FaceRectangleInfo = faceRectangle,
-                        TodoList = todo1,
-                        Show = true,
+                        Title = getTodoTitle(personId).Result,
                     };
-                } else {
+
+                    if (TodoDbExistPersonId(personId))
+                    {
+                        todoList = new AppResponse()
+                        {
+                            PersonId = personId,
+                            FaceRectangleInfo = faceRectangle,
+                            TodoList = todo,
+                            Show = true,
+                        };
+                    }
+                    else
+                    {
+                        todoList = new AppResponse()
+                        {
+                            PersonId = null,
+                            FaceRectangleInfo = null,
+                            TodoList = null,
+                            Show = false,
+                        };
+                    }
+
+                    string json = JsonConvert.SerializeObject(todoList);
+                    return json;
+                } catch(Exception e) {
+                    Console.WriteLine(e);
                     todoList = new AppResponse()
                     {
                         PersonId = null,
@@ -79,10 +92,9 @@ namespace faceTodoApplication.Controllers
                         TodoList = null,
                         Show = false,
                     };
+                    string json = JsonConvert.SerializeObject(todoList);
+                    return json;
                 }
-
-                string json = JsonConvert.SerializeObject(todoList);
-                return json;
             });
             return task;
         }
