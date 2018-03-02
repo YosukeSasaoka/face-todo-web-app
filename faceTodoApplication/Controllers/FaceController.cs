@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using faceTodoApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.Extensions.Options;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,6 +17,16 @@ namespace faceTodoApplication.Controllers
     [Route("api/[controller]")]
     public class FaceController : Controller
     {
+        private readonly TodoesContext _context;
+        private readonly IOptions<AzureStorageConfig> _appOptions;
+        private readonly IOptions<FaceApiConfig> _faceApiOptions;
+        public FaceController(TodoesContext context, IOptions<AzureStorageConfig> appOptions, IOptions<FaceApiConfig> faceApiOptions)
+        {
+            _context = context;
+            _appOptions = appOptions;
+            _faceApiOptions = faceApiOptions;
+        }
+
         [HttpPost]
         public Task<string> Post([FromBody]Detect detect)
         {
