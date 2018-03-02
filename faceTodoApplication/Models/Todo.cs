@@ -17,6 +17,8 @@ namespace faceTodoApplication.Models
         public string Password { get; set; }
         [DisplayName("GoogleToken")]
         public string GoogleToken { get; set; }
+        [DisplayName("TodoTitle")]
+        public string TodoTitle { get; set; }
         [DisplayName("PersonID")]
         public string PersonId { get; set; }
     }

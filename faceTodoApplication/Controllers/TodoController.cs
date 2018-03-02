@@ -79,7 +79,7 @@ namespace faceTodoApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Mail,Password,GoogleToken,PersonId")] Todo todo)
+        public async Task<IActionResult> Create([Bind("ID,Name,Mail,Password,GoogleToken,TodoTitle,PersonId")] Todo todo)
         {
 
             if (ModelState.IsValid)
@@ -130,7 +130,7 @@ namespace faceTodoApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Mail,Password,GoogleToken,PersonId")] Todo todo)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Mail,Password,GoogleToken,TodoTitle,PersonId")] Todo todo)
         {
             if (id != todo.ID)
             {

@@ -25,7 +25,10 @@
                     @Html.DisplayNameFor(model => model.GoogleToken)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PersonId)
+                    @Html.DisplayNameFor(model => model.TodoTitle)
+                </th>
+                  <th>
+                    @Html.DisplayNameFor(model => model.GoogleToken)
                 </th>
             <th></th>
         </tr>
@@ -44,6 +47,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GoogleToken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TodoTitle)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PersonId)
