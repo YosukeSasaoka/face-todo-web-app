@@ -13,5 +13,7 @@ namespace faceTodoApplication.Models
         public FaceRectangle FaceRectangleInfo { get; set; }
         [JsonProperty("todo")]
         public TodoDetail TodoList { get; set; }
+        [JsonProperty("show")]
+        public bool Show { get; set; }
     }
 }
