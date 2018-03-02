@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace faceTodoApplication.Models
 {
@@ -8,7 +9,5 @@ namespace faceTodoApplication.Models
     {
         [JsonProperty("title")]
         public string Title { get; set; }
-        [JsonProperty("date")]
-        public DateTime DoDate { get; set; }
     }
 }
