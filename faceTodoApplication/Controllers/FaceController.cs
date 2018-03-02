@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using faceTodoApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -88,6 +90,11 @@ namespace faceTodoApplication.Controllers
         public bool TodoDbExistPersonId(string personId)
         {
             return _context.Todo.Any(e => e.PersonId.Contains(personId));
+        }
+
+        public async Task<string> getTodoTitle(string personId) {
+            var todo = await _context.Todo.SingleOrDefaultAsync(m => m.PersonId.Contains(personId));
+            return todo.TodoTitle;
         }
     }
 }
