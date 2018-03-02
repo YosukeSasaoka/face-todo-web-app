@@ -7,7 +7,6 @@ using faceTodoApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace faceTodoApplication.Controllers
@@ -15,6 +14,12 @@ namespace faceTodoApplication.Controllers
     [Route("api/[controller]")]
     public class FaceController : Controller
     {
+        private readonly TodoesContext _context;
+        public FaceController(TodoesContext context)
+        {
+            _context = context;
+        }
+
         [HttpPost]
         public Task<string> Post([FromBody]Detect detect)
         {
@@ -55,17 +60,34 @@ namespace faceTodoApplication.Controllers
                 var candidates = identifyResponse[0].CandidatesInfo;
                 string personId = candidates[0].PersonId;
 
-                var todoList = new AppResponse()
-                {
-                    PersonId = personId,
-                    FaceRectangleInfo =faceRectangle,
-                    TodoList = todo1
-                };
+                AppResponse todoList;
+                if (TodoDbExistPersonId(personId)) {
+                    todoList = new AppResponse()
+                    {
+                        PersonId = personId,
+                        FaceRectangleInfo = faceRectangle,
+                        TodoList = todo1,
+                        Show = true,
+                    };
+                } else {
+                    todoList = new AppResponse()
+                    {
+                        PersonId = null,
+                        FaceRectangleInfo = null,
+                        TodoList = null,
+                        Show = false,
+                    };
+                }
 
                 string json = JsonConvert.SerializeObject(todoList);
                 return json;
             });
             return task;
+        }
+
+        public bool TodoDbExistPersonId(string personId)
+        {
+            return _context.Todo.Any(e => e.PersonId.Contains(personId));
         }
     }
 }
