@@ -27,7 +27,9 @@ namespace faceTodoApplication.Controllers
             {
                 var personIdJson = faceApi.createPerson(person.Name).Result;
                 PersonId personId = JsonConvert.DeserializeObject<PersonId>(personIdJson);
-                return faceApi.addPersonFace(personId.Id, person.FaceImgUrl);
+                var res = faceApi.addPersonFace(personId.Id, person.FaceImgUrl);
+                faceApi.trainPersonFace();
+                return res;
             });
 
             return task.Result;
