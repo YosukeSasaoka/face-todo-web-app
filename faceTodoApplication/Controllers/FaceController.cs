@@ -67,17 +67,34 @@ namespace faceTodoApplication.Controllers
                 var candidates = identifyResponse[0].CandidatesInfo;
                 string personId = candidates[0].PersonId;
 
-                var todoList = new AppResponse()
-                {
-                    PersonId = personId,
-                    FaceRectangleInfo =faceRectangle,
-                    TodoList = todo1
-                };
+                AppResponse todoList;
+                if (TodoDbExistPersonId(personId)) {
+                    todoList = new AppResponse()
+                    {
+                        PersonId = personId,
+                        FaceRectangleInfo = faceRectangle,
+                        TodoList = todo1,
+                        Show = true,
+                    };
+                } else {
+                    todoList = new AppResponse()
+                    {
+                        PersonId = null,
+                        FaceRectangleInfo = null,
+                        TodoList = null,
+                        Show = false,
+                    };
+                }
 
                 string json = JsonConvert.SerializeObject(todoList);
                 return json;
             });
             return task;
+        }
+
+        public bool TodoDbExistPersonId(string personId)
+        {
+            return _context.Todo.Any(e => e.PersonId.Contains(personId));
         }
     }
 }
